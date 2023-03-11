@@ -67,16 +67,6 @@
 
 
 
-.container input:checked{
-    content: '';
-    /* background: transparent url(http://netcribe.com/example/arrow_down.png) no-repeat center center;   */
-}
-
-.container input:checked {
-    /* background-image: url(http://netcribe.com/example/arrow_up.png); */
-}
-
-
 
 .container label{
     grid-area: A;
@@ -97,15 +87,21 @@
     height: 100px;
 }
 
+.container input:checked {
+    color: black;
+}
+
 .container input:not(:checked) ~ .btm {
-    transition: 0.3s;
+    transition: 0.3s ;
 }
 .container input:checked ~ .btm {
     transform: rotate(0deg);
-    transition: 0.3s;
+    transition: 0.3s ;
 }
 
+
 .container input:hover ~ article{
+    color: black;
 	transition: 0.3s ease-in-out;
     height: 100px;
 }
