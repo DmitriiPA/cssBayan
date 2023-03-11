@@ -1,1 +1,101 @@
-* {}
+* {
+    background: wheat;
+    /* margin: 0;
+    padding: 0;
+    box-sizing: border-box; */
+}
+
+.container {
+    width: 90%;
+    margin: 10px auto 30px auto;
+}
+
+.body  {
+    color:blue ;
+}
+.body :hover {
+    color: black;
+}
+
+.name {
+    color: black;
+}
+
+.btm {
+    height: 16px;
+    width: 2px;
+    content: '';
+    background: black;
+    grid-area: B;
+    justify-self : end;
+    transform: rotate(45deg);
+    }
+
+.title {
+    display: grid;
+    grid-template-areas:
+    "A B"
+    "C C";
+    border-top: 2px solid thistle;
+
+}
+
+.container label {
+    position: relative;
+    z-index: 5;
+    display: block;
+    height: 30px;
+    cursor: pointer;
+    line-height: 33px;
+    font-size: 19px;
+
+}
+
+
+/* При наведении  */
+.container label:hover{
+    background: #fff;
+}
+
+
+/* Убирает точку */
+.container input {
+    display: none;
+}
+
+
+
+.container input:checked{
+    content: '';
+    /* background: transparent url(http://netcribe.com/example/arrow_down.png) no-repeat center center;   */
+}
+
+.container input:checked {
+    /* background-image: url(http://netcribe.com/example/arrow_up.png); */
+}
+
+
+
+.container label{
+    grid-area: A;
+}
+
+.container article{
+    /* background: rgba(255, 255, 255, 0.5); */
+    overflow: hidden;
+    height: 0px;
+    /* position: relative; */
+    z-index: 10;
+	transition: 0.3s ease-in-out;
+    grid-area: C;
+}
+.container input:checked ~ article{
+    color: black;
+	transition: 0.3s ease-in-out;
+    height: 100px;
+}
+
+.container input:hover ~ article{
+	transition: 0.3s ease-in-out;
+    height: 100px;
+}
