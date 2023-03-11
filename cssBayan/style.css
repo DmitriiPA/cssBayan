@@ -10,15 +10,24 @@
     margin: 10px auto 30px auto;
 }
 
-.body  {
+body  {
     color:blue ;
 }
-.body :hover {
+
+body:hover ~ .btm{
+    opacity: 1;
+}
+
+body :hover {
     color: black;
 }
 
 .name {
     color: black;
+}
+
+img {
+    max-height: 50vh;
 }
 
 .btm {
@@ -31,6 +40,7 @@
     content: '';
     justify-self : end; 
     transform: rotate(45deg);
+    /* opacity: 0; */
 }
 
 .title {
@@ -42,23 +52,14 @@
 
 }
 
-.container label {
-    position: relative;
+.container  {
+    position: static;
     z-index: 5;
-    display: block;
-    height: 30px;
     cursor: pointer;
     line-height: 33px;
     font-size: 19px;
 
 }
-
-
-/* При наведении  */
-.container label:hover{
-    background: #fff;
-}
-
 
 /* Убирает точку */
 .container input {
@@ -66,28 +67,27 @@
 }
 
 
-
-
 .container label{
     grid-area: A;
 }
 
 .container article{
-    /* background: rgba(255, 255, 255, 0.5); */
     overflow: hidden;
     height: 0px;
-    /* position: relative; */
     z-index: 10;
 	transition: 0.3s ease-in-out;
     grid-area: C;
 }
-.container input:checked ~ article{
-    color: black;
+
+/* открывает мем */
+.container input:checked ~ article {
 	transition: 0.3s ease-in-out;
-    height: 100px;
+    height: 23vw;
 }
 
-.container input:checked {
+
+/* меняет текст при нажатии */
+.container input:checked ~ label {
     color: black;
 }
 
@@ -103,5 +103,5 @@
 .container input:hover ~ article{
     color: black;
 	transition: 0.3s ease-in-out;
-    height: 100px;
+    height: 23vw;
 }
