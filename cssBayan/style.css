@@ -9,7 +9,7 @@ body  {
     color:blue ;
 }
 
-body:hover ~ .btm{
+body:hover .btm{
     opacity: 1;
 }
 
@@ -26,66 +26,61 @@ img {
 }
 
 .btm {
+    transform: rotate(45deg);
+    grid-area: B;
+    content: '';
+    justify-self : end; 
     margin-top: 0.3em;
     width: 1em;
     height: 1em;
-    background-color: rgb(0, 0, 0);
     clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
-    content: '';
-    justify-self : end; 
-    transform: rotate(45deg);
-    grid-area: B;
-    /* opacity: 0; */
+    opacity: 0;
+    background-color: rgb(0, 0, 0);
 }
 
 .title {
     display: grid;
     grid-template-areas:
-    "A A A A A A A A A A B"
-    "C C C C C C C C C C C";
+    "A B"
+    "C C";
     border-top: 2px solid thistle;
 }
 
 .container  {
     position: static;
     z-index: 5;
-    cursor: pointer;
     line-height: 2em;
     font-size: 1em;
-
 }
 
 /* Убирает точку */
 .container input {
     position: absolute;
     z-index: 30;
-    opacity: 0;
     width: 80%;
     height: -webkit-fill-available;
+    opacity: 0;
     cursor: pointer;
 }
 
 
 .container label{
-    cursor: pointer;
     grid-area: A;
-    
-    /* justify-self : start;  */
 }
 
 .container article{
+    grid-area: C;
+    justify-self:center;
     overflow: hidden;
     height: 0px;
     z-index: 10;
 	transition: 0.3s ease-in-out;
-    grid-area: C;
-    justify-self:center
 }
 
 /* открывает мем */
 .container input:checked ~ article {
-	transition: 0.3s ease-in-out;
     height: 23rem;
+	transition: 0.3s ease-in-out;
 }
 
 
@@ -98,15 +93,21 @@ img {
     transition: 0.3s ;
 }
 .container input:checked ~ .btm {
-    transform: rotate(0deg);
     transition: 0.3s ;
+    transform: rotate(0deg);
+}
+
+.container input:hover ~ .btm{
+    transition: 0.3s ;
+    transform: rotate(0deg);
 }
 
 .container input:hover ~ article{
-    color: black;
-	transition: 0.3s ease-in-out;
     height: 23rem;
+	transition: 0.3s ease-in-out;
+    color: black;
 }
+
 
 @media (max-width: 500px) {
     img {
@@ -119,3 +120,5 @@ img {
         height: 16rem;
     }
 }
+
+@media (hover)
