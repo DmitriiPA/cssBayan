@@ -1,16 +1,11 @@
 * {
     background: wheat;
-    /* margin: 0;
-    padding: 0;
-    box-sizing: border-box; */
-}
-
-.container {
-    width: 90%;
-    margin: 10px auto 30px auto;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
 body  {
+    width: 80%;
+    margin: 10px auto 30px auto;
     color:blue ;
 }
 
@@ -27,12 +22,11 @@ body :hover {
 }
 
 img {
-    max-height: 50vh;
+    max-height: 22rem;
 }
 
 .btm {
-    margin-top: 6px;
-    grid-area: B;
+    margin-top: 0.3em;
     width: 1em;
     height: 1em;
     background-color: rgb(0, 0, 0);
@@ -40,35 +34,43 @@ img {
     content: '';
     justify-self : end; 
     transform: rotate(45deg);
+    grid-area: B;
     /* opacity: 0; */
 }
 
 .title {
     display: grid;
     grid-template-areas:
-    "A B"
-    "C C";
+    "A A A A A A A A A A B"
+    "C C C C C C C C C C C";
     border-top: 2px solid thistle;
-
 }
 
 .container  {
     position: static;
     z-index: 5;
     cursor: pointer;
-    line-height: 33px;
-    font-size: 19px;
+    line-height: 2em;
+    font-size: 1em;
 
 }
 
 /* Убирает точку */
 .container input {
-    display: none;
+    position: absolute;
+    z-index: 30;
+    opacity: 0;
+    width: 80%;
+    height: -webkit-fill-available;
+    cursor: pointer;
 }
 
 
 .container label{
+    cursor: pointer;
     grid-area: A;
+    
+    /* justify-self : start;  */
 }
 
 .container article{
@@ -77,12 +79,13 @@ img {
     z-index: 10;
 	transition: 0.3s ease-in-out;
     grid-area: C;
+    justify-self:center
 }
 
 /* открывает мем */
 .container input:checked ~ article {
 	transition: 0.3s ease-in-out;
-    height: 23vw;
+    height: 23rem;
 }
 
 
@@ -103,5 +106,17 @@ img {
 .container input:hover ~ article{
     color: black;
 	transition: 0.3s ease-in-out;
-    height: 23vw;
+    height: 23rem;
+}
+
+@media (max-width: 500px) {
+    img {
+        max-height: 15rem;
+    }
+    .container input:checked ~ article {
+        height: 16rem;
+    }
+    .container input:hover ~ article{
+        height: 16rem;
+    }
 }
