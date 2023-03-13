@@ -1,20 +1,13 @@
 * {
     background: wheat;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.2rem;
 }
 
-body  {
+.body  {
     width: 80%;
-    margin: 10px auto 30px auto;
+    margin: 1em auto 2em auto;
     color:blue ;
-}
-
-body:hover .btm{
-    opacity: 1;
-}
-
-body :hover {
-    color: black;
 }
 
 .name {
@@ -43,7 +36,7 @@ img {
     grid-template-areas:
     "A B"
     "C C";
-    border-top: 2px solid thistle;
+    border-top: 0.1em solid thistle;
 }
 
 .container  {
@@ -78,34 +71,69 @@ img {
 }
 
 /* открывает мем */
-.container input:checked ~ article {
+input:checked ~ article {
     height: 23rem;
 	transition: 0.3s ease-in-out;
 }
 
-
-/* меняет текст при нажатии */
-.container input:checked ~ label {
-    color: black;
+input:checked ~ label {
+color: black;
 }
 
-.container input:not(:checked) ~ .btm {
-    transition: 0.3s ;
-}
-.container input:checked ~ .btm {
-    transition: 0.3s ;
-    transform: rotate(0deg);
+@media (hover:hover ) {
+
+    body :hover {
+        color: black;
+    }
+
+    body:hover .btm{
+        opacity: 1;
+    }
+
+    input:not(:checked) ~ .btm {
+        transition: 0.3s ;
+    }
+
+    input:checked ~ .btm {
+        transition: 0.3s ;
+        transform: rotate(0deg);
+    }
+
+    input:hover ~ .btm{
+        transition: 0.3s ;
+        transform: rotate(0deg);
+    }
+
+
+    .title:active .img{
+        filter: opacity(70%);
+    }
+    .title:active {
+        color: rgb(78, 78, 255);
+    }
+
+    input:hover ~ article{
+        height: 23rem;
+        transition: 0.3s ease-in-out;
+        color: black;
+    }
 }
 
-.container input:hover ~ .btm{
-    transition: 0.3s ;
-    transform: rotate(0deg);
+
+
+
+@media (max-width: 1040px) {
+    label {
+        font-size: medium;
+    }
+    
 }
 
-.container input:hover ~ article{
-    height: 23rem;
-	transition: 0.3s ease-in-out;
-    color: black;
+@media (max-width: 600px) {
+    label {
+        font-size: small;
+    }
+    
 }
 
 
@@ -120,5 +148,3 @@ img {
         height: 16rem;
     }
 }
-
-@media (hover)
