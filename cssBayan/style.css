@@ -123,6 +123,9 @@ color: black;
 
 
 @media (max-width: 1040px) {
+    .name {
+        font-size: medium;
+    }
     label {
         font-size: medium;
     }
@@ -130,6 +133,9 @@ color: black;
 }
 
 @media (max-width: 600px) {
+    .name {
+        font-size: small;
+    }
     label {
         font-size: small;
     }
