@@ -1,0 +1,156 @@
+* {
+    background: wheat;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.2rem;
+}
+
+.body  {
+    width: 80%;
+    margin: 1em auto 2em auto;
+    color:blue ;
+}
+
+.name {
+    color: black;
+}
+
+img {
+    max-height: 22rem;
+}
+
+.btm {
+    transform: rotate(45deg);
+    grid-area: B;
+    content: '';
+    justify-self : end; 
+    margin-top: 0.3em;
+    width: 1em;
+    height: 1em;
+    clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+    opacity: 0;
+    background-color: rgb(0, 0, 0);
+}
+
+.title {
+    display: grid;
+    grid-template-areas:
+    "A B"
+    "C C";
+    border-top: 0.1em solid thistle;
+}
+
+.container  {
+    position: static;
+    z-index: 5;
+    line-height: 2em;
+    font-size: 1em;
+}
+
+/* Убирает точку */
+.container input {
+    position: absolute;
+    z-index: 30;
+    width: 80%;
+    height: -webkit-fill-available;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+.container label{
+    grid-area: A;
+}
+
+.container article{
+    grid-area: C;
+    justify-self:center;
+    overflow: hidden;
+    height: 0px;
+    z-index: 10;
+	transition: 0.3s ease-in-out;
+}
+
+/* открывает мем */
+input:checked ~ article {
+    height: 23rem;
+	transition: 0.3s ease-in-out;
+}
+
+input:checked ~ label {
+color: black;
+}
+
+@media (hover:hover ) {
+
+    body :hover {
+        color: black;
+    }
+
+    body:hover .btm{
+        opacity: 1;
+    }
+
+    input:not(:checked) ~ .btm {
+        transition: 0.3s ;
+    }
+
+    input:checked ~ .btm {
+        transition: 0.3s ;
+        transform: rotate(0deg);
+    }
+
+    input:hover ~ .btm{
+        transition: 0.3s ;
+        transform: rotate(0deg);
+    }
+
+
+    .title:active .img{
+        filter: opacity(70%);
+    }
+    .title:active {
+        color: rgb(78, 78, 255);
+    }
+
+    input:hover ~ article{
+        height: 23rem;
+        transition: 0.3s ease-in-out;
+        color: black;
+    }
+}
+
+
+
+
+@media (max-width: 1040px) {
+    .name {
+        font-size: medium;
+    }
+    label {
+        font-size: medium;
+    }
+    
+}
+
+@media (max-width: 600px) {
+    .name {
+        font-size: small;
+    }
+    label {
+        font-size: small;
+    }
+    
+}
+
+
+@media (max-width: 500px) {
+    img {
+        max-height: 15rem;
+    }
+    .container input:checked ~ article {
+        height: 16rem;
+    }
+    .container input:hover ~ article{
+        height: 16rem;
+    }
+}
